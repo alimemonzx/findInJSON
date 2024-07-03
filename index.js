@@ -14,13 +14,13 @@ app.get("/functions/findInJSON", (req, res) => {
     name: "findInJson",
     description: "Find any key in the deep JSON object",
     input: {
-      type: "object | str",
+      type: "object | string",
       description: "Input the JSON object you want to search from",
       example:
-        "{'name': 'Ali', 'email': 'ali@email.com', 'address': {'street': 'Altaf Hussain Road'}}",
+        "{'name': 'Ali', 'email': 'ali@email.com', 'address': {'street': 'Altaf Hussain Road'}, 'keyToFind': 'street'}",
     },
     output: {
-      type: "string",
+      type: "object | string",
       description: "Value of specified key",
       example: "Altaf Hussain Road",
     },
@@ -36,7 +36,7 @@ function findInJson(object) {
       obj.forEach((item) => recursiveSearch(item));
     } else if (typeof obj === "object" && obj !== null) {
       for (const key in obj) {
-        if (key === keyToFind) {
+        if (key === object["keyToFind"]) {
           toBeFound = obj[key];
           return;
         }
