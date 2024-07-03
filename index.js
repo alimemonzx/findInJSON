@@ -15,7 +15,7 @@ app.get("/functions/findInJSON", (req, res) => {
     description: "Find any key in the deep JSON object",
     input: {
       type: "object | string",
-      description: "Input the JSON object you want to search from",
+      description: "Input the JSON object you want to search from.",
       example:
         "{'name': 'Ali', 'email': 'ali@email.com', 'address': {'street': 'Altaf Hussain Road'}, 'keyToFind': 'street'}",
     },
