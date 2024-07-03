@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/functions/findInJSON", (req, res) => {
   const { input } = req.body;
-  res.json({ output: findInJson(input.object, input.key) });
+  res.json({ output: findInJson(input, input.keyToFind) });
 });
 
 app.get("/functions/findInJSON", (req, res) => {
